@@ -1,0 +1,6 @@
+{
+  "name": "منظومة مرسال - Mersal Backend & Console",
+  "description": "خادم مرسال المركزي (Node.js/Express + MongoDB + JWT) مع بوابة إدارة، محاكي تطبيقات العملاء والموظفين، ومختبر API تفاعلي.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
