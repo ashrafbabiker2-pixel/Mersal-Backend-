@@ -34,6 +34,33 @@ async function startServer() {
   // Real-time API Logger middleware for live telemetry
   app.use(apiLogger);
 
+  // Direct Health & API endpoints
+  app.get('/health', (req, res) => {
+    res.status(200).json({
+      success: true,
+      status: 'healthy',
+      service: 'mersal-backend',
+      timestamp: new Date().toISOString(),
+      environment: process.env.NODE_ENV || 'development'
+    });
+  });
+
+  app.get('/api', (req, res) => {
+    res.status(200).json({
+      success: true,
+      message: 'MERSAL API',
+      version: 'v1',
+      endpoints: {
+        auth: '/api/v1/auth',
+        users: '/api/v1/users',
+        services: '/api/v1/services',
+        orders: '/api/v1/orders',
+        employees: '/api/v1/employees',
+        admin: '/api/v1/admin'
+      }
+    });
+  });
+
   // Mount API Version 1 Routes
   app.use('/api/v1', v1Router);
 
